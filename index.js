@@ -4,10 +4,6 @@ var config = require('./config.json')
 var fs = require('fs')
 const yahooFinance = require('yahoo-finance')
 const ChartJsImage = require('chartjs-to-image');
-const Canvas = require('canvas');
-const Chart = require('chart.js');
-const { url } = require('inspector')
-const { attachment } = require('express/lib/response')
 
 var configdc = 'USD'
 
