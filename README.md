@@ -2,6 +2,8 @@
 
 A bot made for finance server
 
+[Invite](https://top.gg/bot/929516301788012585) the bot and use it on your server
+
 ## Commands
 
 #### General
