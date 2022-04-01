@@ -810,7 +810,7 @@ client.on('interactionCreate', interaction => {
         interaction.reply('The selection is invalid, please select only one argument!')
     else {
         const guild = interaction.guild
-        var serverName = guild.name
+        var serverName = guild.id
         var CurrPath = `./currency/${serverName}`  
         fs.writeFile(CurrPath, interaction.values[0], function (err) {
             console.log(err);
