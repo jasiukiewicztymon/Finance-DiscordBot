@@ -24,7 +24,7 @@ client.on('ready', () => {
 
 client.on('messageCreate', (message) => {
     const guild = message.guild
-    var serverName = guild.name
+    var serverName = guild.id
 
     var DataPath = `./datas/${serverName}`  
     fs.access(DataPath, fs.F_OK, function(err) {
