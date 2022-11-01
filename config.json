@@ -1,4 +1,6 @@
 {
-	"token": "TOKEN",
-	"prefix": "$"
+    "devStatus": "dev",
+    "token": "TOKEN",
+    "clientId": "...",
+    "guildId": "..."
 }
