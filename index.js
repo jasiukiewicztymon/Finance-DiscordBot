@@ -1,4 +1,4 @@
-const { Client, Collection, Events, GatewayIntentBits, REST, Routes } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, REST, Routes } = require('discord.js');
 
 const { token, clientId, guildId, devStatus } = require('./config.json');
 const log = require("./log.js");
@@ -79,5 +79,13 @@ else {
 		}
 	})();
 }
+
+client.on('interactionCreate', (interaction) => {
+	if (interaction.isChatInputCommand()) {
+		// / commands 
+		if (fs.existsSync(`./commands/${interaction.commandName}.js`)) 
+			require(`./commands/${interaction.commandName}.js`).execute(interaction)
+	}
+});
 
 client.login(token);
