@@ -1,47 +1,26 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('author')
 		.setDescription('✨ About author embed message!'),
 	async execute(interaction) {
-        const authorEmbed = new DiscordJS.MessageEmbed()
+        const authorEmbed = new EmbedBuilder()
             .setTitle('Author information')
-            .setColor('#18A31F')
-            .setDescription('Here you can yound some information about the author')
+            .setColor(0x06D6A0)
+            .setDescription('Here you can found some information about the author ✨')
             .addFields(
-                { name: 'Who I am', value: 'I\' a junior discord.js developer who learn using public APIs' },
+                { name: 'Who I am ?', value: 'I\'m just a coder lol 😂' },
                 { name: 'Some social', value: 'The links below, are my media' },
             );
+        const buttons = new ActionRowBuilder()
+			.addComponents(
+				new ButtonBuilder()
+					.setLabel('Github')
+					.setStyle(ButtonStyle.Link)
+                    .setURL('https://github.com/jasiukiewicztymon'),
+			);
 
-        await interaction.post({
-            data: {
-                embeds: [authorEmbed],
-                components: [
-                    {
-                    type: 1,
-                    components: [
-                        {
-                        type: 2,
-                        style: 5,
-                        label: "GitHub",
-                        url: "https://github.com/jasiukiewicztymon"
-                    }
-                    ]
-                },
-                {
-                    type: 1,
-                    components: [
-                        {
-                        type: 2,
-                        style: 5,
-                        label: "Instagram",
-                        url: "https://www.instagram.com/titi_2115/?hl=fr"
-                        }
-                    ]
-                }
-            ]
-            }
-        });
+        await interaction.reply({ embeds: [ authorEmbed ], components: [ buttons ] });
 	},
 };
